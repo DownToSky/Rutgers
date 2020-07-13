@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+% make subsections alphabetic:
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
+
+% vector drawing package
+\usepackage{tikz}
+\usepackage{tikz-3dplot}    
+% documentation: 
+%http://ctan.math.washington.edu/tex-archive/graphics/pgf/contrib/tikz-3dplot/tikz-3dplot_documentation.pdf
+
+% reals set symbols
+\usepackage{amssymb}
+
+\title{Intro to Linear Algebra: Homework 1}
+
+\date{May 2020}
+
+\begin{document}
+
+
+\maketitle
+\section{}
+\subsection{}
+Define 2 by 2 identity matrix $I_{2\times2} = \left[\begin{array}{cc}1 & 0 \\0 & 1\end{array}\right]$ and $M_{m\times n}$ vector:\newline
+For $I_{2\times2} \times M_{m\times n}$, it should hold true that $m=2$.\newline
+For $M_{m\times n} \times I_{2\times2}$, it should hold true that $n=2$.
+\subsection{}
+Define $M_{m\times 2} = \left[\begin{array}{cc}a_0 & b_0 \\ .&.\\.&.\\.&.\\a_m & b_m\end{array}\right]$.\newline
+$M \times I = \left[\begin{array}{cc}a_0 & b_0 \\ .&.\\.&.\\.&.\\a_m & b_m\end{array}\right] \times \left[\begin{array}{cc}1 & 0 \\0 & 1\end{array}\right] = \left[\begin{array}{cc}a_0 + 0 & b_0 + 0 \\.&.\\.&.\\.&.\\a_m + 0 & b_m + 0 \end{array}\right] = M $\newline
+\subsection{}
+Multiplying a matrix by identity matrix $I$ leaves the matrix unchanged.
+
+\section{}
+$(A\times B)\times C = \left[\begin{array}{cc}a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} & a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32}\end{array}\right] \times C = \left[\begin{array}{cc}a_{11} b_{11} c_{11}+ a_{12} b_{21} c_{11}+ a_{13} b_{31} c_{11} & a_{11} b_{12} c_{12}+ a_{12} b_{22} c_{12}+ a_{13} b_{32} c_{12}\end{array}\right]$\newline
+$A\times (B\times C) = A \times \left[\begin{array}{c} b_{11} c_{11} + b_{12} c_{21}\\b_{21} c_{11} + b_{22} c_{21} \\ b_{31} c_{11} + b_{32} c_{21}\end{array}\right] = \\ \left[\begin{array}{cc}a_{11} b_{11} c_{11}+ a_{12} b_{21} c_{11}+ a_{13} b_{31} c_{11} & a_{11} b_{12} c_{12}+ a_{12} b_{22} c_{12}+ a_{13} b_{32} c_{12}\end{array}\right] = \\(A\times B)\times C$
+\section{}
+\subsection{}
+Define $Mat_{2\times 3}(\mathbb{R}) = \left[\begin{array}{ccc} m_{11} & m_{12} & m_{13} \\  m_{21} & m_{22} & m_{23}\end{array}\right]$, then define $+$ and $.$ as:\newline
+$$Mat_{2\times 3}(\mathbb{R}) + Mat_{2\times 3}(\mathbb{R})^{'} =\left[\begin{array}{ccc} m_{11}+m_{11}^{'} & m_{12}+m_{12}^{'} & m_{13}+m_{13}^{'} \\  m_{21}+m_{21}^{'} & m_{22}+m_{22}^{'} & m_{23}+m_{23}^{'}\end{array}\right] $$
+$$s . Mat_{2\times 3}(\mathbb{R}) = \left[\begin{array}{ccc} sm_{11} & sm_{12} & sm_{13} \\  sm_{21} & sm_{22} & sm_{23}\end{array}\right]$$
+Similar to workshop 1, problem 1, we can show that these two form a vectors space over $\mathbb{R}$ due to properties of real numbers.
+\subsection{}
+\subsubsection{}
+$\left[\begin{array}{ccc}n&0&0\\0&n&0\end{array}\right]$ for integer $n$.
+\subsubsection{}
+$\left[\begin{array}{ccc}n&m&0\\0&0&0\end{array}\right]$ for integers $n,m$.
+\subsubsection{}
+The third vector is a linear combination of the first two.\newline
+$\left[\begin{array}{ccc}n&m&0\\0&0&0\end{array}\right]$ for integers $n,m$.
+\subsection{}
+i and ii are linearly independent and iii is dependent.
+\subsection{}
+Based on this definition, it is true that for matrix $Mat_{2\times 3}(\mathbb{R})$, $m_{13} + m_{23} = 0$. \newline
+The 0 vector is in this subspace: $\left[\begin{array}{ccc} 0&0&0\\0&0&0\end{array}\right]$ because both entries of the 3rd column sum to zero.\newline
+
+$Mat_{2\times 3}(\mathbb{R})$ is closed under addition:
+$$Mat_{2\times 3}(\mathbb{R}) + Mat_{2\times 3}(\mathbb{R})^{'} =\left[\begin{array}{ccc} m_{11}+m_{11}^{'} & m_{12}+m_{12}^{'} & m_{13}+m_{13}^{'} \\  m_{21}+m_{21}^{'} & m_{22}+m_{22}^{'} & m_{23}+m_{23}^{'}\end{array}\right] $$
+$m_{13}+m_{13}^{'} + m_{23}+m_{23}^{'} = (m_{13}+m_{23}) + (m_{23}^{'}+m_{13}^{'}) = 0 + 0 = 0$ and so $Mat_{2\times 3}(\mathbb{R}) + Mat_{2\times 3}(\mathbb{R})^{'}$ is in the subspace.\newline
+
+$Mat_{2\times 3}(\mathbb{R})$ is closed under scalar multiplication:
+$$s . Mat_{2\times 3}(\mathbb{R}) = \left[\begin{array}{ccc} sm_{11} & sm_{12} & sm_{13} \\  sm_{21} & sm_{22} & sm_{23}\end{array}\right]$$
+$sm_{13}+sm_{23}= s(m_{12}+m_{23}) = s(0) = 0$ and so $s . Mat_{2\times 3}(\mathbb{R})$ is in the subspace.\newline
+\section{}
+
+\end{document}

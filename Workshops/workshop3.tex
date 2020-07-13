@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+% make subsections alphabetic:
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+% vector drawing package
+\usepackage{tikz}
+\usepackage{tikz-3dplot}    
+% documentation: 
+%http://ctan.math.washington.edu/tex-archive/graphics/pgf/contrib/tikz-3dplot/tikz-3dplot_documentation.pdf
+
+% reals set symbols
+\usepackage{amssymb}
+
+\title{Intro to Linear Algebra: Workshop 3}
+
+\date{May 2020}
+
+\begin{document}
+
+
+\maketitle
+
+\section{}
+\subsection{}
+A sinple point.\newline
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale = 4]
+\draw[thick, ->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+\fill[red] ($(0,0,0)$) circle[radius=0.5pt] node[anchor=north west]{$(0,0,0)$};
+\end{tikzpicture}
+
+\subsection{}
+A line.\newline
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,1,0) node[anchor=south]{$(1,1,0)$};
+
+\draw[color=red] (-2,-2,0) -- (2,2,0);
+\end{tikzpicture}
+
+\subsection{}
+A line.\newline
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,0,0) node[anchor=west]{$(1,0,0)$};
+\draw[blue, thick, ->] (0,0,0) -- (-1,0,0) node[anchor=west]{$(-1,0,0)$};
+
+\draw[color=red] (-2,0,0) -- (3,0,0);
+\end{tikzpicture}
+
+\subsection{}
+A plane.\newline
+\tdplotsetmaincoords{70}{140}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,0,0) node[anchor=south]{$(1,0,0)$};
+\draw[blue, thick, ->] (0,0,0) -- (0,0,1) node[anchor=west]{$(0,0,1)$};
+\fill[red,opacity=0.3]
+  (2,0,2) --(-2,0,2)--(-2,0,-2)--(2,0,-2) -- cycle;  
+\end{tikzpicture}
+
+
+\subsection{}
+A plane.\newline
+\tdplotsetmaincoords{70}{140}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,0,0) node[anchor=south]{$(1,0,0)$};
+\draw[blue, thick, ->] (0,0,0) -- (1,0,1) node[anchor=west]{$(1,0,1)$};
+
+\fill[red,opacity=0.3]
+  (2,0,2) --(-2,0,2)--(-2,0,-2)--(2,0,-2) -- cycle;  
+\end{tikzpicture}
+
+\subsection{}
+A plane.\newline
+\tdplotsetmaincoords{60}{160}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,1,0) node[anchor=south]{$(1,1,0)$};
+\draw[blue, thick, ->] (0,0,0) -- (-1,-1,-1) node[anchor=south]{$(-1,-1,-1)$};
+\draw[blue, thick, ->] (0,0,0) -- (0,0,1) node[anchor=west]{$(0,0,1)$};
+
+\fill[red,opacity=0.3]
+  (2,2,2) -- (2,2,-2) -- (-2,-2,-2) -- (-2,-2,2) -- cycle;  
+\end{tikzpicture}
+
+\subsection{} 
+Entire 3D space.\newline
+\tdplotsetmaincoords{60}{130}
+\begin{tikzpicture}[tdplot_main_coords, scale = 2]
+\draw[thick, ->] (0,0,0) -- (2,0,0) node[anchor=north east]{$x$};
+\draw[thick, ->] (0,0,0) -- (0,2,0) node[anchor=north west]{$y$};
+\draw[thick, ->] (0,0,0) -- (0,0,2) node[anchor=south]{$z$};
+\draw[blue, thick, ->] (0,0,0) -- (1,1,0) node[anchor=south]{$(1,1,0)$};
+\draw[blue, thick, ->] (0,0,0) -- (1,0,1) node[anchor=south]{$(1,0,1)$};
+\draw[blue, thick, ->] (0,0,0) -- (0,0,1) node[anchor=west]{$(0,0,1)$};
+
+\fill[red,opacity=0.3]
+  (2,-2,2) -- (2,-2,-2) -- (-2,2,-2) -- (-2,2,2) -- cycle;  
+\end{tikzpicture}
+
+\section{}
+\subsection{}
+A single 0.
+
+\subsection{}
+$n + nx$ for integer $n$.
+
+\subsection{}
+All integers.
+
+\subsection{}
+$n + mx^2$ for integers $n, m$.
+
+\subsection{}
+$n + mx^2$ for integers $n, m$.
+
+\subsection{}
+$n + nx + mx^2$ for integers $n, m$.
+
+\subsection{}
+$n + mx + tx^2$ for integers $n, m, t$.
+
+\section{}
+\subsection{}
+a, b, d, e and g are linearly independent. c and f are dependent.
+\subsection{}
+Every linear independent set in $\mathbb{R}$ spans into same dimension of the cardinality of the set except of {(0,0,0)} (which spans to a point). Such set with cardinality 1 spans into a line, 2 into a plane and 3 the entire 3D space. To know what a set in $\mathbb{R}$ spans, we can remove dependent vectors from the set first.
+\subsection{}
+a, b, d, e and g are linearly independent. c and f are dependent.
+
+\section{}
+Yes, in fact we could form a bijection from $\mathcal{P}_m$ to $\mathbb{R}^{m+1}$ by doing the following. For each non-negative$n$:
+$$a_0 + a_1 x + ... + a_n x^n \Longleftrightarrow (a_0, a_1, ... , a_n)$$\newline
+If we apply this to problem two we would get the sets:\newline
+a.$\{(0,0,0)\}$\newline
+b.$\{(1,1,0)\}$\newline
+c.$\{(1,0,0),(−1,0,0)\}$\newline
+d.$\{(1,0,0),(0,0,1)\}$\newline
+e.$\{(1,0,0),(1,0,1)\}$\newline
+f.$\{(1,1,0),(0,0,1),(−1,−1,−1)\}$\newline
+g.$\{(1,1,0),(0,0,1),(1,0,1)\}$\newline
+Which is exactly as problem 1.
+\end{document}

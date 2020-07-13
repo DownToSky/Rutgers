@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+% make subsections alphabetic:
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+% vector drawing package
+\usepackage{tikz}
+\usepackage{tikz-3dplot}    
+
+% reals set symbols
+\usepackage{amssymb}
+
+\title{Intro to Linear Algebra: Workshop 1}
+
+\date{May 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection{}
+Define addition and subtraction of vectors $u = u_0 + u_1 x + ... + u_n x^n, v = v_0 + v_1 + ... + v_n x^n$ and scalar $s$ over $\mathcal{P}_n$ as:\newline
+$$u + v = (u_0 + v_0) + (u_1 + v_1) x + ... + (u_n + v_n) x^n$$
+$$s . u = s u_0 + s u_1 x + ... + s u_n x^n$$
+Similarly to workshop 1, problem 1, we can show these definitions form a vector space over $\mathbb{R}$.
+\subsection{}
+Generalized statement: $\mathcal{P}_n$ is a subspace of $\mathcal{P}_m$ for all non negative $n<m$.\newline
+The zero vector exists: in $\mathcal{P}_n$ by setting every polynomial coefficient to 0.\newline
+Is closed under addition: $$\exists t\in\mathbb{N}^{+}\cup\{0\} \, u + v = (u_0 + v_0) + (u_1 + v_1) x + ... + (u_n + v_n) x^n = t_0 + t_1 x + ... + t_n x^n \in \mathcal{P}_n$$
+Is closed under scalar multiplication:
+$$\exists t\in\mathbb{N}^{+}\cup\{0\} \, s . u = s u_0 + s u_1 x + ... + s u_n x^n = t_0 + t_1 x + ... + t_n x^n \in \mathcal{P}_n$$
+\subsection{}
+Define addition and subtraction of vectors $u = a_u + b_u i, v = a_v + b_v i$ and scalar $s$ over $\mathcal{P}_n$ as:\newline
+$$u + v = (a_u + a_v) + (b_u + b_v) i$$
+$$s . u = s a_u  + s b_u i$$
+Similarly to workshop 1, problem 1, we can show these definitions form a vector space over $\mathbb{R}$.
+\end{document}
